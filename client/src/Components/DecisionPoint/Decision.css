@@ -1,0 +1,21 @@
+.decision-list-order {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.decision-list-order li {
+  padding: 0.455rem;
+  background: transparent;
+  border: 1px solid green;
+  border-radius: 10px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+.decision-list-order li:hover {
+  background: #1d1d1d;
+  color: #f1f1f1;
+}

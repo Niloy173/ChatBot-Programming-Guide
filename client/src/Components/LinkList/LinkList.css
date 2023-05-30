@@ -1,0 +1,39 @@
+.link-list {
+  padding: 0;
+  list-style: none;
+}
+
+.link-list-item {
+  text-align: left;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.link-list-item-url {
+  text-decoration: none;
+  margin: 6px;
+  display: block;
+  color: #1d1d1d;
+  background-color: #f1f1f1;
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px rgba(150, 149, 149, 0.4);
+}
+.link-subject {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+.link-suggest {
+  font-size: 0.733rem;
+}
+
+.link-suggest a {
+  color: #376b7e;
+  font-weight: bold;
+}
+
+.link-list-item-url:hover {
+  background: #1d1d1d;
+  color: #f1f1f1;
+}
