@@ -122,6 +122,8 @@ function handlePostbacks(sender_psid, received_postback) {
 // Sends response messages via the send api
 function callSendAPI(sender_psid, response){
 
+  console.log(response);
+
   let request_body = {
     "recipient": {
       "id": sender_psid,
@@ -131,7 +133,7 @@ function callSendAPI(sender_psid, response){
 
   // making http request to messanger platform
   request({
-    "uri": "https://graph.facebook.com/v2.7.0/me/messages",
+    "uri": "https://graph.facebook.com/v17.0/me/messages",
     "qs": {"access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
     "json": request_body
