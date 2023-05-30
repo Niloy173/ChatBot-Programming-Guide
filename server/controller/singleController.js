@@ -38,12 +38,12 @@ function postWebhook(req, res, next) {
       console.log(webhook_event);
 
       let sender_psid = webhook_event.sender.id;
-      console.log('Sender PSID: ' + sender_psid);
+      // console.log('Sender PSID: ' + sender_psid);
 
       if(webhook_event.message) {
         handleMessage(sender_psid,webhook_event.message)
       }else if(webhook_event.postback){
-        handlePostbacks(sender_psid,webhook_event.postback)
+        handlePostback(sender_psid,webhook_event.postback)
       }
 
     });
@@ -59,6 +59,7 @@ function postWebhook(req, res, next) {
 function handleMessage(sender_psid, received_message) {
 
   let response;
+  console.log(`message : `, received_message);
 
   if(received_message.text) {
 
@@ -69,6 +70,9 @@ function handleMessage(sender_psid, received_message) {
   else if(received_message.attachments) {
 
     let attachments_url = received_message.attachments[0].payload.url;
+    console.log(`attachments : `,received_message.attachments[0]);
+    console.log(attachments_url);
+
 
     response = {
       "attachments": {
@@ -101,7 +105,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handles messaging_postbacks events
-function handlePostbacks(sender_psid, received_postback) {
+function handlePostback(sender_psid, received_postback) {
 
   let response;
 
