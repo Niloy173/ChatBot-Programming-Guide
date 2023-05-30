@@ -2,7 +2,7 @@ function InitialController(req,res,next) {
   res.send("Hello there! I am running on a server"); 
 }
 
-function getWehook(req, res, next) {
+function getWebhook(req, res, next) {
 
   let VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN ;
 
@@ -25,15 +25,18 @@ function getWehook(req, res, next) {
 
 }
 
-function postWehook(req, res, next) {
+function postWebhook(req, res, next) {
   let body = req.body;
 
   if(body.object === 'page') {
 
     body.entry.forEach(function(entry){
       
-      let webhook = entry.messaging[0];
-      console.log(webhook);
+      let webhook_event = entry.messaging[0];
+      console.log(webhook_event);
+
+      let sender_psid = webhook_event.sender.id;
+      console.log('Sender PSID: ' + sender_psid);
     });
 
     res.status(200).send('EVENT_RECEIVED');
@@ -60,6 +63,6 @@ function callSendAPI(sender_psid, response){
 
 module.exports = {
   InitialController,
-  postWehook,
-  getWehook
+  postWebhook,
+  getWebhook
 }

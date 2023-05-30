@@ -1,13 +1,13 @@
 const express = require('express');
-const { InitialController, getWehook, postWehook } = require('../controller/singleController');
+const { InitialController, getWebhook, postWebhook } = require('../controller/singleController');
 
 const router = express.Router();
 
 router.get('/',InitialController);
 
-router.get('/webhook', getWehook);
+router.get('/webhook', getWebhook);
 
-router.post('/webhook', postWehook);
+router.post('/webhook', postWebhook);
 
 module.exports = {
   router
