@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended : true}));
 
 
 /* routes */
-app.use("/",router);
+app.use("/api",router);
 
 
 
